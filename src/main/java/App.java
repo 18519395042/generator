@@ -1,5 +1,3 @@
-package com;
-
 import com.baomidou.mybatisplus.enums.IdType;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
 import com.baomidou.mybatisplus.generator.config.DataSourceConfig;
@@ -14,7 +12,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class App {
 
     public static void main(String[] args) {
-        String[] tables = {"sys_dept", "sys_dict", "sys_menu", "sys_role", "sys_user", "sys_user_role", "sys_role_menu"};
+        String[] tables = {"ea_game_switch","ea_version"};
 
         // 全局配置
         GlobalConfig globalConfig = new GlobalConfig()
@@ -35,7 +33,7 @@ public class App {
                 .setDriverName("com.mysql.jdbc.Driver")
                 .setUsername("root")
                 .setPassword("root")
-                .setUrl("jdbc:mysql://127.0.0.1:3306/system?characterEncoding=utf8&userSSL=true&serverTimezone=GMT");
+                .setUrl("jdbc:mysql://127.0.0.1:3306/dxj?characterEncoding=utf8&userSSL=true&serverTimezone=GMT");
 
 
         // 策略配置
@@ -44,14 +42,14 @@ public class App {
                 .setDbColumnUnderline(true)
                 .setEntityLombokModel(true)
                 .setEntityBuilderModel(true)
-                .setTablePrefix(new String[]{"sys_", "qrtz_"})
+                .setTablePrefix(new String[]{"sys_", "qrtz_","ea_"})
                 .setNaming(NamingStrategy.underline_to_camel)
                 .setInclude(tables);
 
 
         // 包配置
         PackageConfig packageInfo = new PackageConfig()
-                .setParent("com.lxw")
+                .setParent("com.ea.base")
                 .setMapper("mapper")
                 .setService("service")
                 .setController("controller")
